@@ -3,7 +3,7 @@
 galaxy_info:
   author: Magne Davidsen
   description: Install Gradle
-  min_ansible_version: 1.4
+  min_ansible_version: 1.7
   license: MIT
   platforms:
   - name: Ubuntu
