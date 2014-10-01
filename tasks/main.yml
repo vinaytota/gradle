@@ -11,11 +11,17 @@
     path: /usr/local/gradle
     state: directory
 
+- name: Gradle | apt-get update
+  apt: update_cache=yes
+
 - name: Gradle | Install unzip
   apt: pkg=unzip state=latest
 
 - name: Gradle | Unpack the compressed Gradle
-  command: unzip /tmp/gradle-{{gradle_version}}-all.zip -d /usr/local/gradle
+  command: unzip /tmp/gradle-{{gradle_version}}-all.zip
+
+- name: Gradle | Copy Gradle
+  command: cp -r /tmp/gradle-{{gradle_version}} /usr/local/gradle
 
 - name: Gradle | Set the permissions on the Gradle binary
   file:
