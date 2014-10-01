@@ -11,6 +11,9 @@
     path: /usr/local/gradle
     state: directory
 
+- name: Gradle | Install unzip
+  apt: pkg=unzip state=latest
+
 - name: Gradle | Unpack the compressed Gradle
   command: unzip /tmp/gradle-{{gradle_version}}-all.zip -d /usr/local/gradle
 
