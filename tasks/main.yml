@@ -6,11 +6,6 @@
     url: "https://services.gradle.org/distributions/gradle-{{gradle_version}}-all.zip"
     dest: "/tmp/gradle-{{gradle_version}}-all.zip"
 
-- name: Gradle | Make sure the directory to hold the Gradle binaries is present
-  file:
-    path: /usr/local/gradle
-    state: directory
-
 - name: Gradle | apt-get update
   apt: update_cache=yes
 
