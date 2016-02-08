@@ -14,11 +14,13 @@
 
 - name: Gradle | Unpack the compressed Gradle
   command: unzip /tmp/gradle-{{gradle_version}}-all.zip -d /usr/local
-  creates: /usr/local/gradle-{{gradle_version}}
+  args:
+    creates: /usr/local/gradle-{{gradle_version}}
 
 - name: Grade | Rename Gradle folder
   command: mv /usr/local/gradle-{{gradle_version}} /usr/local/gradle
-  creates: /usr/local/gradle/gradle-{{gradle_version}}
+  args:
+    creates: /usr/local/gradle/gradle-{{gradle_version}}
 
 - name: Gradle | Set the permissions on the Gradle binary
   file:
