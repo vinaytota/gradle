@@ -13,10 +13,12 @@
   apt: pkg=unzip state=latest
 
 - name: Gradle | Unpack the compressed Gradle
-  command: rm -rf /usr/local/gradle-{{gradle_version}} && unzip /tmp/gradle-{{gradle_version}}-all.zip -d /usr/local
+  command: unzip /tmp/gradle-{{gradle_version}}-all.zip -d /usr/local
+  creates: /usr/local/gradle-{{gradle_version}}
 
 - name: Grade | Rename Gradle folder
-  command: rm -rf /usr/local/gradle/gradle-{{gradle_version}} && mv /usr/local/gradle-{{gradle_version}} /usr/local/gradle
+  command: mv /usr/local/gradle-{{gradle_version}} /usr/local/gradle
+  creates: /usr/local/gradle/gradle-{{gradle_version}}
 
 - name: Gradle | Set the permissions on the Gradle binary
   file:
