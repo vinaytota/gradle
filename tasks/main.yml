@@ -17,10 +17,8 @@
   args:
     creates: /usr/local/gradle-{{gradle_version}}
 
-- name: Grade | Rename Gradle folder
-  command: mv /usr/local/gradle-{{gradle_version}} /usr/local/gradle
-  args:
-    creates: /usr/local/gradle/gradle-{{gradle_version}}
+- name: Grade | Symlink Gradle folder
+  file: src=/usr/local/gradle-{{gradle_version}} dest=/usr/local/gradle state=link force=yes
 
 - name: Gradle | Set the permissions on the Gradle binary
   file:
